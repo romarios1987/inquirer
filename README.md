@@ -1,2 +1,3 @@
-# inquirer
-React app for creating tests
+# Inquirer
+
+### React app for creating tests
