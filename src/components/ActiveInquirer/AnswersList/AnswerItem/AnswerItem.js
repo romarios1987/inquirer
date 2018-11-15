@@ -2,13 +2,12 @@ import React from 'react';
 import './AnswerItem.css';
 
 
-const AnswerItem = (props) => {
+const AnswerItem = ({text}) => {
     return (
         <li className='AnswerItem'>
-            {props.answer.text}
+            {text}
         </li>
     )
 };
-
 
 export default AnswerItem;

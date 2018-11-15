@@ -2,15 +2,18 @@ import React from 'react';
 import './AnswersList.css';
 import AnswerItem from "./AnswerItem/AnswerItem";
 
-const AnswersList = (props) => {
+const AnswersList = ({answers}) => {
     return (
         <div className='AnswersList'>
             <ul>
-                {props.answers.map((answer, index) => {
+                {answers.map((answer) => {
+
+                    const {id, ...answerProps} = answer;
                     return (
-                        <AnswerItem
-                            key={index}
-                            answer={answer}
+                        <AnswerItem key={answer.id}
+                                    {...answerProps}
+                            // key={answerProps.index}
+                            // text={answerProps.text}
                         />
                     )
 
