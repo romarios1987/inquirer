@@ -2,6 +2,9 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: 15px;
+    background: linear-gradient(90deg, #004FF9 0%, #FFF94C 100%);
+
 }
 
 .Layout main{
