@@ -4,6 +4,7 @@ import AnswersList from "./AnswersList/AnswersList";
 
 
 const ActiveInquirer = ({answers, question, onAnswerClick}) => {
+
     return (
         <div className='ActiveInquirer'>
             <h3 className='Question'>

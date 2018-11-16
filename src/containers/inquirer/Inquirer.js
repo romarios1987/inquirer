@@ -7,7 +7,7 @@ class Inquirer extends Component {
     state = {
         inquirer: [
             {
-                question: 'Headline question??33?',
+                question: 'Headline question?',
                 rightAnswerId: 3,
                 answers: [
                     {text: 'Answer 1', id:1},
@@ -20,7 +20,7 @@ class Inquirer extends Component {
 
 
     onAnswerClickHandler = (answerId) => {
-        console.log(answerId);
+        console.log(`answerId: ${answerId}`);
     };
 
 
@@ -31,7 +31,7 @@ class Inquirer extends Component {
                 <ActiveInquirer
                     answers={this.state.inquirer[0].answers}
                     question={this.state.inquirer[0].question}
-                    //onAnswerClick={this.onAnswerClickHandler}
+                    onAnswerClick={this.onAnswerClickHandler}
                 />
             </div>
         )
