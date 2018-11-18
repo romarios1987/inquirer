@@ -3,7 +3,7 @@ import './ActiveInquirer.css';
 import AnswersList from "./AnswersList/AnswersList";
 
 
-const ActiveInquirer = ({answers, question, onAnswerClick, inquirerLength, answerNumber}) => {
+const ActiveInquirer = ({answers, question, onAnswerClick, inquirerLength, answerNumber, state}) => {
 
     return (
         <div className='ActiveInquirer'>
@@ -12,6 +12,7 @@ const ActiveInquirer = ({answers, question, onAnswerClick, inquirerLength, answe
                 <small>{answerNumber} of {inquirerLength}</small>
             </h3>
             <AnswersList
+                state={state}
                 answers={answers}
                 onAnswerClick={onAnswerClick}
             />
