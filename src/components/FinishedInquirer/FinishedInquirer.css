@@ -1,0 +1,18 @@
+.FinishedInquirer{
+    width: 600px;
+    padding: 15px;
+    color: #ffffff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 0 10px;
+}
+.FinishedInquirer ul li i{
+    margin-left: 15px;
+ }
+.error{
+    color: rgba(240, 87, 108, .7);
+}
+.success{
+    color: rgba(161, 240, 69, .7);
+}

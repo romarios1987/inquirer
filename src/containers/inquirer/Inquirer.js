@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import './Inquirer.css';
 import ActiveInquirer from "../../components/ActiveInquirer/ActiveInquirer";
+import FinishedInquirer from "../../components/FinishedInquirer/FinishedInquirer";
 
 class Inquirer extends Component {
 
     state = {
+        results: {}, // {[id]:'success' || 'error'}
+        isFinished: false,
         activeQuestion: 0,
         answerState: null, // {[id]:'success' || 'error'}
         inquirer: [
@@ -32,12 +35,11 @@ class Inquirer extends Component {
     };
 
 
-
     onAnswerClickHandler = (answerId) => {
 
-        if(this.state.answerState){
+        if (this.state.answerState) {
             const key = Object.keys(this.state.answerState)[0];
-            if(this.state.answerState[key] === 'success'){
+            if (this.state.answerState[key] === 'success') {
                 return
             }
         }
@@ -47,15 +49,27 @@ class Inquirer extends Component {
 
         const question = this.state.inquirer[this.state.activeQuestion];
 
+        const results = this.state.results;
+
         if (question.rightAnswerId === answerId) {
             // если ответили правильно
+            if (!results[answerId]) {
+                results[answerId] = 'success'
+            }
+
 
             this.setState({
-                answerState: {[answerId]: 'success'}
+                answerState: {
+                    [answerId]: 'success',
+                    results
+
+                }
             });
             const timeout = window.setTimeout(() => {
                 if (this.isInquirerFinished()) {
-                    console.log('Finished');
+                    this.setState({
+                        isFinished: true
+                    })
                 } else {
                     this.setState({
                         activeQuestion: this.state.activeQuestion + 1,
@@ -66,8 +80,10 @@ class Inquirer extends Component {
             }, 500);
 
         } else {
+            results[answerId] = 'error';
             this.setState({
-                answerState: {[answerId]: 'error'}
+                answerState: {[answerId]: 'error'},
+                results
             });
         }
 
@@ -85,14 +101,21 @@ class Inquirer extends Component {
         return (
             <div className='Inquirer'>
                 <h1>Inquirer</h1>
-                <ActiveInquirer
-                    answers={this.state.inquirer[this.state.activeQuestion].answers}
-                    question={this.state.inquirer[this.state.activeQuestion].question}
-                    onAnswerClick={this.onAnswerClickHandler}
-                    inquirerLength={this.state.inquirer.length}
-                    answerNumber={this.state.activeQuestion + 1}
-                    state={this.state.answerState}
-                />
+                {
+                    this.state.isFinished
+                        ? <FinishedInquirer
+                            results={this.state.results}
+                            inquirer={this.state.inquirer}
+                        />
+                        : <ActiveInquirer
+                            answers={this.state.inquirer[this.state.activeQuestion].answers}
+                            question={this.state.inquirer[this.state.activeQuestion].question}
+                            onAnswerClick={this.onAnswerClickHandler}
+                            inquirerLength={this.state.inquirer.length}
+                            answerNumber={this.state.activeQuestion + 1}
+                            state={this.state.answerState}
+                        />
+                }
             </div>
         )
     }
