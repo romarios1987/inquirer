@@ -53,15 +53,15 @@ class Inquirer extends Component {
 
         if (question.rightAnswerId === answerId) {
             // если ответили правильно
-            if (!results[answerId]) {
-                results[answerId] = 'success'
+            if (!results[question.id]) {
+                results[question.id] = 'success'
             }
 
 
             this.setState({
                 answerState: {
                     [answerId]: 'success',
-                    results
+                    results: results
 
                 }
             });
@@ -80,7 +80,7 @@ class Inquirer extends Component {
             }, 500);
 
         } else {
-            results[answerId] = 'error';
+            results[question.id] = 'error';
             this.setState({
                 answerState: {[answerId]: 'error'},
                 results
@@ -88,12 +88,24 @@ class Inquirer extends Component {
         }
 
 
+        console.log(results)
+
     };
 
 
     isInquirerFinished() {
         return this.state.activeQuestion + 1 === this.state.inquirer.length;
     }
+
+
+    retryHandler = () => {
+        this.setState({
+            activeQuestion: 0,
+            answerState: null,
+            isFinished: false,
+            results: {}
+        })
+    };
 
 
     render() {
@@ -106,6 +118,7 @@ class Inquirer extends Component {
                         ? <FinishedInquirer
                             results={this.state.results}
                             inquirer={this.state.inquirer}
+                            onRetry={this.retryHandler}
                         />
                         : <ActiveInquirer
                             answers={this.state.inquirer[this.state.activeQuestion].answers}

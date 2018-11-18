@@ -3,30 +3,48 @@ import './FinishedInquirer.css';
 
 
 const FinishedInquirer = (props) => {
-    //console.log(inquirer);
+    //console.log(props.inquirer);
+
+
+    const successCount = Object.keys(props.results).reduce((total,key)=>{
+        if(props.results[key] === 'success'){
+            total++
+        }
+        return total;
+    }, 0);
+
     return (
         <div className='FinishedInquirer'>
-            <ul>
-                {props.inquirer.map((inquirerItem, index) => {
-                    console.log(props.results[inquirerItem]);
 
-                    const cls = [
-                        props.results[inquirerItem.id] === 'error' ? 'fa-times' : 'fa-check'
-                    ];
-                    //console.log(inquirer.results);
-                    return (
-                        <li key={index}>
-                            <strong>{index + 1}</strong>. &nbsp;
-                            {inquirerItem}
-                            <i className={cls.join(' ')}/>
-                        </li>
-                    )
-                })}
+            <ul>
+
+                {
+                    props.inquirer.map((inquirerItem, index) => {
+
+
+                        console.log(inquirerItem.id);
+
+                        const cls = [
+                            'fa',
+                            props.results[inquirerItem.id] === 'error' ? 'fa-times' : 'fa-check',
+                            props.results[inquirerItem.id]
+                        ];
+                        return(
+                            <li key={index}>
+                                <strong>{index +1}</strong>. &nbsp;
+                                {inquirerItem.question}
+                                <i className={cls.join(' ')}/>
+                            </li>
+                        )
+
+                    })
+                }
+
             </ul>
 
-            <p>Right 4 of 10</p>
+            <p>Right {successCount} of {props.inquirer.length}</p>
             <div>
-                <button>To retry</button>
+                <button onClick={props.onRetry}>To retry</button>
             </div>
         </div>
     )
