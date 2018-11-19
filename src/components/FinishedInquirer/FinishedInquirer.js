@@ -1,37 +1,27 @@
 import React from 'react';
 import './FinishedInquirer.css';
-
+import Button from "../UI/Button/Button";
 
 const FinishedInquirer = (props) => {
-    //console.log(props.inquirer);
-
-
-    const successCount = Object.keys(props.results).reduce((total,key)=>{
-        if(props.results[key] === 'success'){
+    const successCount = Object.keys(props.results).reduce((total, key) => {
+        if (props.results[key] === 'success') {
             total++
         }
         return total;
     }, 0);
-
     return (
         <div className='FinishedInquirer'>
-
             <ul>
-
                 {
                     props.inquirer.map((inquirerItem, index) => {
-
-
-                        console.log(inquirerItem.id);
-
                         const cls = [
                             'fa',
                             props.results[inquirerItem.id] === 'error' ? 'fa-times' : 'fa-check',
                             props.results[inquirerItem.id]
                         ];
-                        return(
+                        return (
                             <li key={index}>
-                                <strong>{index +1}</strong>. &nbsp;
+                                <strong>{index + 1}</strong>. &nbsp;
                                 {inquirerItem.question}
                                 <i className={cls.join(' ')}/>
                             </li>
@@ -39,16 +29,13 @@ const FinishedInquirer = (props) => {
 
                     })
                 }
-
             </ul>
-
             <p>Right {successCount} of {props.inquirer.length}</p>
             <div>
-                <button onClick={props.onRetry}>To retry</button>
+                <Button onClick={props.onRetry} type='btn_primary'>To retry</Button>
+                <Button type='btn_success'>To list tests</Button>
             </div>
         </div>
     )
 };
-
-
 export default FinishedInquirer;
