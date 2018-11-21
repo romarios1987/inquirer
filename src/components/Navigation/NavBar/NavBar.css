@@ -1,17 +1,17 @@
 .NavBar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 80%;
-    max-width: 300px;
-    padding: 20px 10px;
-    box-sizing: border-box;
-    background: white;
-    transform: translateX(0px);
-    transition: transform .22s ease-in;
-    z-index: 90;
-}
+     position: fixed;
+     left: 0;
+     top: 0;
+     bottom: 0;
+     width: 80%;
+     max-width: 300px;
+     padding: 20px 10px;
+     box-sizing: border-box;
+     background: white;
+     transform: translateX(0px);
+     transition: transform .22s ease-in;
+     z-index: 90;
+ }
 
 .NavBar.close {
     transform: translateX(-300px);
@@ -33,4 +33,5 @@
 
 .NavBar ul li a:hover, .active {
     opacity: .7;
+    color: #004FF9;
 }

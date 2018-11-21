@@ -1,0 +1,22 @@
+.InquirerList{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    flex-grow: 1;
+    width: 100%;
+    color: #fff;
+}
+
+.InquirerList ul li{
+    margin-bottom: 10px;
+}
+.InquirerList ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+}
+.InquirerList ul li a:hover{
+    color: #004FF9;
+}
+
+

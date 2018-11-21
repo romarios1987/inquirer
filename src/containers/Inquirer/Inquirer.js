@@ -108,6 +108,12 @@ class Inquirer extends Component {
     };
 
 
+    componentDidMount(){
+        console.log(`Inquirer ID = ${this.props.match.params.id}`)
+    }
+
+
+
     render() {
 
         return (
