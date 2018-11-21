@@ -2,6 +2,8 @@ import React from 'react';
 import './FinishedInquirer.css';
 import Button from "../UI/Button/Button";
 
+import {Link} from 'react-router-dom';
+
 const FinishedInquirer = (props) => {
     const successCount = Object.keys(props.results).reduce((total, key) => {
         if (props.results[key] === 'success') {
@@ -33,7 +35,9 @@ const FinishedInquirer = (props) => {
             <p>Right {successCount} of {props.inquirer.length}</p>
             <div>
                 <Button onClick={props.onRetry} type='btn_primary'>To retry</Button>
-                <Button type='btn_success'>To list tests</Button>
+                <Link to='/'>
+                    <Button type='btn_success'>To list tests</Button>
+                </Link>
             </div>
         </div>
     )
