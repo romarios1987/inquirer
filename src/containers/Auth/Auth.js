@@ -84,7 +84,7 @@ export default class Auth extends Component {
 
         formControls[controlName] = control;
 
-        let isFormValid = true;
+        let isFormValid = false;
 
         Object.keys(formControls).forEach(name => {
             isFormValid = formControls[name].valid && isFormValid
@@ -126,11 +126,11 @@ export default class Auth extends Component {
 
                         {this.renderInputs()}
                         <Button
-                            type='success'
+                            type='btn_primary'
                             onClick={this.loginHandler}
                             disabled={!this.state.isFormValid}>Login</Button>
                         <Button
-                            type='primary'
+                            type='btn_success'
                             onClick={this.registerHandler}
                             disabled={!this.state.isFormValid}>Register</Button>
                     </form>

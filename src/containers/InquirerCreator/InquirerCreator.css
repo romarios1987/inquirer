@@ -1,0 +1,21 @@
+.InquirerCreator{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    flex-grow: 1;
+    width: 100%;
+    background: #ccc;
+}
+.InquirerCreator > div{
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.InquirerCreator form{
+    background: #FFF94C;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+

@@ -4,14 +4,11 @@ import './Button.css'
 
 const Button = props => {
 
-
-    console.log(props);
+    //console.log(props);
     const cls = [
         'Button',
         props.type
-
     ];
-
 
     return(
         <button
