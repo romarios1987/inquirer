@@ -1,10 +1,10 @@
 .Inquirer{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     flex-grow: 1;
     width: 100%;
-    padding-top: 150px;
 }
 .Inquirer h1{
     color: #ffffff;

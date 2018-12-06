@@ -5,7 +5,6 @@
     border: 2px solid #fff;
     border-radius: 5px;
     box-sizing: border-box;
-    margin: 0 10px;
 }
 .FinishedInquirer ul li i{
     margin-left: 15px;
@@ -15,4 +14,11 @@
 }
 .success{
     color: rgba(161, 240, 69, .7);
+}
+
+
+@media (min-width: 320px) and (max-width: 640px) {
+    .FinishedInquirer {
+        width: 90%;
+    }
 }

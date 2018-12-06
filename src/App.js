@@ -6,7 +6,6 @@ import Auth from "./containers/Auth/Auth";
 import InquirerCreator from "./containers/InquirerCreator/InquirerCreator";
 import InquirerList from "./containers/InquirerList/InquirerList";
 
-
 class App extends Component {
     render() {
         return (
