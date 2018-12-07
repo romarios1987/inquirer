@@ -1,12 +1,6 @@
 .Inquirer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    width: 100%;
+    padding: 15px;
 }
 .Inquirer h1{
-    color: #ffffff;
-    text-transform: uppercase;
+    font-style: italic;
 }

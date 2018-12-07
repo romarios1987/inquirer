@@ -1,6 +1,7 @@
 import React from 'react';
 import './FinishedInquirer.css';
-import Button from "../UI/Button/Button";
+
+import { Button } from 'reactstrap';
 
 import {Link} from 'react-router-dom';
 
@@ -34,9 +35,9 @@ const FinishedInquirer = (props) => {
             </ul>
             <p>Right {successCount} of {props.inquirer.length}</p>
             <div>
-                <Button onClick={props.onRetry} type='btn_primary'>To retry</Button>
+                <Button style={{marginRight: '10px'}} onClick={props.onRetry} color="primary">To retry</Button>
                 <Link to='/'>
-                    <Button type='btn_success'>To list tests</Button>
+                    <Button color="success">To list tests</Button>
                 </Link>
             </div>
         </div>

@@ -1,30 +1,31 @@
 import React, {Component} from 'react';
 import './InquirerList.css'
 import {NavLink} from 'react-router-dom';
+import {Col, ListGroup, ListGroupItem} from 'reactstrap';
 
 export default class InquirerList extends Component {
 
-    renderInquirers() {
+    renderInquirers = () => {
         return [1, 2, 4].map((inquirer, index) => {
             return (
-                <li key={index}>
+                <ListGroupItem key={index}>
                     <NavLink to={`/inquirer/${inquirer}`}>
                         test{inquirer}
                     </NavLink>
-                </li>
+                </ListGroupItem>
             )
         })
-    }
+    };
 
     render() {
         return (
             <div className='InquirerList'>
-                <div>
-                    <h1>List tests</h1>
-                    <ul>
+                <Col lg={{ size: 6, offset: 3 }} md={{ size: 8, offset: 2 }}>
+                    <h1 className="text-center text-white">List tests</h1>
+                    <ListGroup>
                         {this.renderInquirers()}
-                    </ul>
-                </div>
+                    </ListGroup>
+                </Col>
             </div>
         )
     }

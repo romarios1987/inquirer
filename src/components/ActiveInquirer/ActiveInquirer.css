@@ -1,19 +1,12 @@
-.ActiveInquirer {
-    width: 600px;
-    color: #ffffff;
-    border: 2px solid #fff;
-    border-radius: 5px;
-    box-sizing: border-box;
-    padding: 15px;
-}
-
 .Question{
     display: flex;
     justify-content: space-between;
+    color: #ffffff;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-@media (min-width: 320px) and (max-width: 640px) {
-    .ActiveInquirer {
-        width: 90%;
-    }
+.Question small{
+    font-size: 14px;
+    margin-top: 10px;
 }

@@ -1,12 +1,12 @@
 import React from 'react';
 import './AnswersList.css';
 import AnswerItem from "./AnswerItem/AnswerItem";
+import {ListGroup} from 'reactstrap';
 
 const AnswersList = ({answers, onAnswerClick, state}) => {
-    //console.log(onAnswerClick);
     return (
         <div className='AnswersList'>
-            <ul>
+            <ListGroup>
                 {answers.map((answer) => {
 
                     const {id, ...answerProps} = answer;
@@ -21,7 +21,7 @@ const AnswersList = ({answers, onAnswerClick, state}) => {
                     )
 
                 })}
-            </ul>
+            </ListGroup>
         </div>
     )
 };

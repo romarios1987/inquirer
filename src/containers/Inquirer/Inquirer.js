@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './Inquirer.css';
 import ActiveInquirer from "../../components/ActiveInquirer/ActiveInquirer";
 import FinishedInquirer from "../../components/FinishedInquirer/FinishedInquirer";
+import {Col} from 'reactstrap';
+
 
 class Inquirer extends Component {
 
@@ -108,33 +110,34 @@ class Inquirer extends Component {
     };
 
 
-    componentDidMount(){
+    componentDidMount() {
         console.log(`Inquirer ID = ${this.props.match.params.id}`)
     }
-
 
 
     render() {
 
         return (
             <div className='Inquirer'>
-                <h1>Inquirer</h1>
-                {
-                    this.state.isFinished
-                        ? <FinishedInquirer
-                            results={this.state.results}
-                            inquirer={this.state.inquirer}
-                            onRetry={this.retryHandler}
-                        />
-                        : <ActiveInquirer
-                            answers={this.state.inquirer[this.state.activeQuestion].answers}
-                            question={this.state.inquirer[this.state.activeQuestion].question}
-                            onAnswerClick={this.onAnswerClickHandler}
-                            inquirerLength={this.state.inquirer.length}
-                            answerNumber={this.state.activeQuestion + 1}
-                            state={this.state.answerState}
-                        />
-                }
+                <Col lg={{size: 6, offset: 3}} md={{size: 8, offset: 2}}>
+                    <h1 className="text-center text-white">Inquirer</h1>
+                    {
+                        this.state.isFinished
+                            ? <FinishedInquirer
+                                results={this.state.results}
+                                inquirer={this.state.inquirer}
+                                onRetry={this.retryHandler}
+                            />
+                            : <ActiveInquirer
+                                answers={this.state.inquirer[this.state.activeQuestion].answers}
+                                question={this.state.inquirer[this.state.activeQuestion].question}
+                                onAnswerClick={this.onAnswerClickHandler}
+                                inquirerLength={this.state.inquirer.length}
+                                answerNumber={this.state.activeQuestion + 1}
+                                state={this.state.answerState}
+                            />
+                    }
+                </Col>
             </div>
         )
     }

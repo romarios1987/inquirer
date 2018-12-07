@@ -1,15 +1,9 @@
 .Layout{
     height: 100vh;
-    display: flex;
-    flex-direction: column;
     background: linear-gradient(90deg, #004FF9 0%, #FFF94C 100%);
-    border: 1px solid green;
-
 }
 
 .Layout main{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    border: 1px solid red;
+    padding-top: 150px;
+    width: 100%;
 }

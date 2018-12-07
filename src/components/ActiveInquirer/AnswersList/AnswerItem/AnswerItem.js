@@ -1,5 +1,7 @@
 import React from 'react';
 import './AnswerItem.css';
+import {ListGroupItem} from 'reactstrap';
+
 
 const AnswerItem = ({text, onAnswerClick, id, state}) => {
 
@@ -11,9 +13,9 @@ const AnswerItem = ({text, onAnswerClick, id, state}) => {
     }
 
     return (
-        <li className={stateClass.join(' ')} onClick={() => onAnswerClick(id)}>
+        <ListGroupItem className={stateClass.join(' ')} onClick={() => onAnswerClick(id)}>
             {text}
-        </li>
+        </ListGroupItem>
     )
 };
 export default AnswerItem;
