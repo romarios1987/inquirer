@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ActiveQuiz.module.css';
 import AnswersList from "./AnswersList/AnswersList";
 
-const ActiveQuiz = ({question, answers, quizLenght, onAnswerClick, answerNumber}) => {
+const ActiveQuiz = ({question, answers, quizLenght, onAnswerClick, answerNumber, answerState}) => {
   return (
         <div className={styles.ActiveQuiz}>
           <p className={styles.Question}>
@@ -13,8 +13,10 @@ const ActiveQuiz = ({question, answers, quizLenght, onAnswerClick, answerNumber}
             <small>{answerNumber} of {quizLenght}</small>
           </p>
 
-          <AnswersList answers={answers}
-                       onAnswerClick={onAnswerClick}
+          <AnswersList
+                answerState={answerState}
+                answers={answers}
+                onAnswerClick={onAnswerClick}
           />
         </div>
   );

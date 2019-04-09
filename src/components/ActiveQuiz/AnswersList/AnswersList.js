@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './AnswersList.module.css';
 import AnswerItem from "./AnswerItem/AnswerItem";
 
-const AnswersList = ({answers, onAnswerClick}) => {
+const AnswersList = ({answers, onAnswerClick, answerState}) => {
   return (
         <div>
           <ul className={styles.AnswersList}>
@@ -11,6 +11,7 @@ const AnswersList = ({answers, onAnswerClick}) => {
                         answer={answer}
                         key={index}
                         onAnswerClick={onAnswerClick}
+                        answerState={answerState ? answerState[answer.id] : null}
                   />
             )}
           </ul>
