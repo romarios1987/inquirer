@@ -13,9 +13,9 @@
 
 
 .AnswerItem.success {
-    background: rgba(161, 240, 69, .7);
+    background: var(--mainGreen);
 }
 
 .AnswerItem.error {
-    background: rgba(240, 87, 108, .7);
+    background: var(--mainRed);
 }
