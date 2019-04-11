@@ -3,6 +3,7 @@ import styles from './FinishedQuiz.module.css'
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTimes, faCheck} from '@fortawesome/free-solid-svg-icons'
+import Button from "../ui/Button/Button";
 
 const FinishedQuiz = (props) => {
 
@@ -41,7 +42,8 @@ const FinishedQuiz = (props) => {
           <p>Correct answers {successCount} of {props.quiz.length}</p>
 
           <div>
-            <button onClick={props.onRetry}>Repeat</button>
+            <Button onClick={props.onRetry} value="Repeat" type="primary"/>
+            <Button value="Go to test list" type="success"/>
           </div>
         </div>
   );
