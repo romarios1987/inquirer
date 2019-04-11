@@ -5,6 +5,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTimes, faCheck} from '@fortawesome/free-solid-svg-icons'
 import Button from "../ui/Button/Button";
 
+import {Link} from "react-router-dom";
+
 const FinishedQuiz = (props) => {
 
   const successCount = Object.keys(props.results).reduce((total, key) => {
@@ -43,7 +45,9 @@ const FinishedQuiz = (props) => {
 
           <div>
             <Button onClick={props.onRetry} value="Repeat" type="primary"/>
-            <Button value="Go to test list" type="success"/>
+            <Link to="/">
+              <Button value="Go to test list" type="success"/>
+            </Link>
           </div>
         </div>
   );
